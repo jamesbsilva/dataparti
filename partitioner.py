@@ -1,7 +1,3 @@
-"""
-The :mod:`sklearn.cross_validation` module includes utilities for cross-
-validation and performance evaluation.
-"""
 
 # Author: jbsilva <@>
 # License: BSD 3 clause
@@ -12,18 +8,18 @@ import pandas as pd;
 import numpy as np;
 
 def parti_set(data,part_percents,time_shuffle=None):
-    """S.
+    """parti_set partitions a data set into partitions given by a list.
 
     Parameters
     ----------
     X : Input data array.
-    part_percents :
-    Returns
+    part_percents : a list of percents to partition by. Will normalize this list to generate proper partitions
+    (optional) time_shuffle : string name of time column for ordering partitions by time 
+    Returns : A list of data sets of given partition size.
     -------
-    splitting : list of partitioned data
-            Output type is the same as the input type.
     Examples
     --------
+    
     """
 
     # shuffle data and make a data frame
@@ -48,16 +44,17 @@ def parti_set(data,part_percents,time_shuffle=None):
     return parti_out
 
 def parti_by(data,part_percents,by_col,time_partitions=None,time_col=None):
-    """S.
+    """parti_by partitions a data set by a given class e.g. customers.
 
     Parameters
     ----------
     X : Input data array.
-    part_percents :
-    Returns
+    part_percents : a list of percents to partition by. Will normalize this list to generate proper partitions
+    by_col : name of partition by column e.g customer column name
+    (optional) time_partitions : list of percents for time partioning the output partitions 
+    (optional) time_col : string name of time column for ordering partitions by time 
+    Returns : A list of data sets of given partition size. If using time partitions a list of list is generated. 
     -------
-    splitting : list of partitioned data
-            Output type is the same as the input type.
     Examples
     --------
     """
